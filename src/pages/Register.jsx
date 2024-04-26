@@ -10,7 +10,6 @@ const Register = () => {
     const form = e.target;
     const email = form.email.value;
     const pass = form.pass.value;
-    console.log(email, pass);
 
     createUser(email, pass)
       .then((userCredential) => {
@@ -31,8 +30,10 @@ const Register = () => {
                 <h1 className="text-xl text-center font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                   Register your account
                 </h1>
-
-                <form className="space-y-4 md:space-y-6">
+                <form
+                  onSubmit={handleRegister}
+                  className="space-y-4 md:space-y-6"
+                >
                   <div>
                     <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                       Your Name
@@ -47,7 +48,7 @@ const Register = () => {
                   </div>
                   <div>
                     <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                      Your email
+                      Your Email
                     </label>
                     <input
                       type="email"
@@ -83,7 +84,6 @@ const Register = () => {
                   </div>
                   <button
                     type="submit"
-                    onSubmit={handleRegister}
                     className="w-full text-white hover:bg-[#1e3799] focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center  bg-[#4a69bd]"
                   >
                     Register

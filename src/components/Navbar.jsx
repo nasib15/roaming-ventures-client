@@ -1,6 +1,18 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
 
 const Navbar = () => {
+  const { user, signOutUser } = useContext(AuthContext);
+
+  const handleSignOut = () => {
+    signOutUser()
+      .then(console.log("Signed Out"))
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   return (
     <div className="mx-auto max-w-[90%] mt-6">
       <div className="navbar bg-base-100">
@@ -60,14 +72,35 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-              <button className=" btn bg-[#e55039] hover:bg-[#b71510] text-white">
-                <Link to={"/login"}>Login</Link>
-              </button>
+              {user ? (
+                <div className="flex gap-4 items-center">
+                  <img
+                    className="rounded-full w-10 "
+                    src={user.photoURL}
+                    alt=""
+                  />
+                  <button
+                    onClick={handleSignOut}
+                    className="btn bg-[#e55039] text-white hover:bg-[#b71510]"
+                  >
+                    Log Out
+                  </button>
+                </div>
+              ) : (
+                <Link
+                  to={"/login"}
+                  className="btn bg-[#e55039] text-white hover:bg-[#b71510]"
+                >
+                  Login
+                </Link>
+              )}
             </li>
             <li>
-              <button className=" btn bg-[#4a69bd] hover:bg-[#1e3799] text-white">
-                <Link to={"/register"}>Register</Link>
-              </button>
+              {user ? null : (
+                <button className=" btn bg-[#4a69bd] hover:bg-[#1e3799] text-white">
+                  <Link to={"/register"}>Register</Link>
+                </button>
+              )}
             </li>
           </ul>
         </div>

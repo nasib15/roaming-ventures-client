@@ -83,7 +83,7 @@ const Login = () => {
               <div className="divider">
                 <span className="opacity-80">or</span>
               </div>
-              <form className="space-y-4 md:space-y-6">
+              <form onSubmit={handleSignIn} className="space-y-4 md:space-y-6">
                 <div>
                   <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                     Your email
@@ -113,7 +113,6 @@ const Login = () => {
 
                 <button
                   type="submit"
-                  onSubmit={handleSignIn}
                   className="w-full text-white hover:bg-[#b71510] focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center  bg-[#e55039]"
                 >
                   Sign in
