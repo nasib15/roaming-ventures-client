@@ -1,9 +1,11 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
+  const [registerError, setRegisterError] = useState(null);
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -11,13 +13,27 @@ const Register = () => {
     const email = form.email.value;
     const pass = form.pass.value;
 
+    setRegisterError(null);
+
+    if (!/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(pass)) {
+      setRegisterError(
+        "Password must contain at least 6 characters, including uppercase and lowercase letters."
+      );
+      toast.error(registerError);
+      return;
+    }
+
     createUser(email, pass)
       .then((userCredential) => {
         const user = userCredential.user;
         console.log(user);
+        toast.success("User registered successfully");
       })
       .catch((error) => {
         console.error(error);
+        setRegisterError(error.message);
+        toast.error(registerError);
+        return;
       });
   };
   return (
@@ -54,7 +70,7 @@ const Register = () => {
                       type="email"
                       name="email"
                       className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      placeholder="name@company.com"
+                      placeholder="name@gmail.com"
                       required={true}
                     />
                   </div>

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
@@ -9,9 +9,11 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import auth from "../firebase/firebase.config";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const { signInUser } = useContext(AuthContext);
+  const [loginError, setLoginError] = useState(null);
 
   const handleSignIn = (e) => {
     e.preventDefault();
@@ -23,9 +25,14 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        toast.success("User logged in successfully");
+        return;
       })
       .catch((error) => {
         console.error(error);
+        setLoginError(error.message);
+        toast.error(loginError);
+        return;
       });
   };
 
@@ -35,9 +42,12 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        toast.success("User logged in successfully");
+        return;
       })
       .catch((error) => {
         console.error(error);
+        
       });
   };
 
@@ -47,6 +57,8 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        toast.success("User logged in successfully");
+        return;
       })
       .catch((error) => {
         console.error(error);

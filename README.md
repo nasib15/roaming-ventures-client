@@ -1,8 +1,14 @@
-# React + Vite
+# Roaming Ventures
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Website Link: [https://b9-a10-client-side-knh-nehal.vercel.app/](https://b9-a10-client-side-knh-nehal.vercel.app/)
 
-Currently, two official plugins are available:
+## Category : B9 A10 Type-01
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Characteristics of the Website
+
+- It is fully responsive
+- You can add your tour spot
+- It has some protected route so that only a verified user add Tour Spots
+- You can update info of the Tour Spots
+- You can login into the website
+- All the config files are stored secretly using environment variables

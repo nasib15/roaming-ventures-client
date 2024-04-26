@@ -1,13 +1,17 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
   const { user, signOutUser } = useContext(AuthContext);
 
   const handleSignOut = () => {
     signOutUser()
-      .then(console.log("Signed Out"))
+      .then(() => {
+        console.log("Signed Out");
+        toast.success("User logged out successfully");
+      })
       .catch((error) => {
         console.error(error);
       });
@@ -17,9 +21,9 @@ const Navbar = () => {
     <div className="mx-auto max-w-[90%] mt-6">
       <div className="navbar bg-base-100">
         <div className="flex-1">
-          <a className="btn btn-ghost text-xl">
+          <Link to={"/"} className="btn btn-ghost text-xl">
             Roaming <span className="text-[#e55039]">Ventures</span>
-          </a>
+          </Link>
         </div>
         <div className="flex-none">
           <ul className="flex items-center gap-4 px-1">
@@ -77,7 +81,7 @@ const Navbar = () => {
                   <img
                     className="rounded-full w-10 "
                     src={user.photoURL}
-                    alt=""
+                    alt="pro-pic"
                   />
                   <button
                     onClick={handleSignOut}
