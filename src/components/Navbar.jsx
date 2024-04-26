@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="mx-auto max-w-[90%] mt-2">
+    <div className="mx-auto max-w-[90%] mt-6">
       <div className="navbar bg-base-100">
         <div className="flex-1">
           <a className="btn btn-ghost text-xl">
