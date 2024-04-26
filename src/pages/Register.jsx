@@ -1,6 +1,26 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const pass = form.pass.value;
+    console.log(email, pass);
+
+    createUser(email, pass)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
   return (
     <div>
       <div className="mt-4">
@@ -12,7 +32,7 @@ const Register = () => {
                   Register your account
                 </h1>
 
-                <form className="space-y-4 md:space-y-6" action="#">
+                <form className="space-y-4 md:space-y-6">
                   <div>
                     <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                       Your Name
@@ -20,7 +40,6 @@ const Register = () => {
                     <input
                       type="text"
                       name="name"
-                      id="name"
                       className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="Your Name"
                       required={true}
@@ -33,7 +52,6 @@ const Register = () => {
                     <input
                       type="email"
                       name="email"
-                      id="email"
                       className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="name@company.com"
                       required={true}
@@ -46,7 +64,6 @@ const Register = () => {
                     <input
                       type="text"
                       name="url"
-                      id="url"
                       placeholder="https://www.example.com/15.jpg"
                       className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       required={true}
@@ -58,16 +75,15 @@ const Register = () => {
                     </label>
                     <input
                       type="password"
-                      name="password"
-                      id="password"
+                      name="pass"
                       placeholder="••••••••"
                       className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       required={true}
                     />
                   </div>
-
                   <button
                     type="submit"
+                    onSubmit={handleRegister}
                     className="w-full text-white hover:bg-[#1e3799] focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center  bg-[#4a69bd]"
                   >
                     Register

@@ -1,8 +1,58 @@
+import { useContext } from "react";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
+import {
+  GithubAuthProvider,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
+import auth from "../firebase/firebase.config";
 
 const Login = () => {
+  const { signInUser } = useContext(AuthContext);
+
+  const handleSignIn = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const pass = form.pass.value;
+
+    signInUser(email, pass)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  const handleGoogleSignIn = () => {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  const handleGithubSignIn = () => {
+    const provider = new GithubAuthProvider();
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   return (
     <div className="mt-4">
       <section className=" dark:bg-gray-900">
@@ -15,14 +65,14 @@ const Login = () => {
               <div>
                 <div className="flex lg:flex-row flex-col gap-4">
                   <button
-                    // onClick={handleGoogleSignIn}
+                    onClick={handleGoogleSignIn}
                     className="lg:my-4 flex gap-2 items-center justify-center  border border-gray-300 rounded-lg shadow-md px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200"
                   >
                     <FcGoogle className="text-3xl"></FcGoogle>Continue with
                     Google
                   </button>
                   <button
-                    // onClick={handleGithubSignIn}
+                    onClick={handleGithubSignIn}
                     className="lg:my-4 flex gap-2 items-center justify-center  border border-gray-300 rounded-lg shadow-md px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200"
                   >
                     <FaGithub className="text-3xl"></FaGithub>Continue with
@@ -33,7 +83,7 @@ const Login = () => {
               <div className="divider">
                 <span className="opacity-80">or</span>
               </div>
-              <form className="space-y-4 md:space-y-6" action="#">
+              <form className="space-y-4 md:space-y-6">
                 <div>
                   <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                     Your email
@@ -53,7 +103,7 @@ const Login = () => {
                   </label>
                   <input
                     type="password"
-                    name="password"
+                    name="pass"
                     id="password"
                     placeholder="••••••••"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -63,6 +113,7 @@ const Login = () => {
 
                 <button
                   type="submit"
+                  onSubmit={handleSignIn}
                   className="w-full text-white hover:bg-[#b71510] focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center  bg-[#e55039]"
                 >
                   Sign in
