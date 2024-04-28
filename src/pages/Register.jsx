@@ -13,8 +13,6 @@ const Register = () => {
     const email = form.email.value;
     const pass = form.pass.value;
 
-    setRegisterError(null);
-
     if (!/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(pass)) {
       setRegisterError(
         "Password must contain at least 6 characters, including uppercase and lowercase letters."
@@ -24,13 +22,10 @@ const Register = () => {
     }
 
     createUser(email, pass)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log(user);
+      .then(() => {
         toast.success("User registered successfully");
       })
       .catch((error) => {
-        console.error(error);
         setRegisterError(error.message);
         toast.error(registerError);
         return;

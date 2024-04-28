@@ -22,14 +22,11 @@ const Login = () => {
     const pass = form.pass.value;
 
     signInUser(email, pass)
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
+      .then(() => {
         toast.success("User logged in successfully");
         return;
       })
       .catch((error) => {
-        console.error(error);
         setLoginError(error.message);
         toast.error(loginError);
         return;
@@ -39,24 +36,19 @@ const Login = () => {
   const handleGoogleSignIn = () => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
+      .then(() => {
         toast.success("User logged in successfully");
         return;
       })
       .catch((error) => {
         console.error(error);
-        
       });
   };
 
   const handleGithubSignIn = () => {
     const provider = new GithubAuthProvider();
     signInWithPopup(auth, provider)
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
+      .then(() => {
         toast.success("User logged in successfully");
         return;
       })

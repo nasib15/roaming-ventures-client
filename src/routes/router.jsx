@@ -7,6 +7,7 @@ import AddTourist from "../pages/AddTourist";
 import MyList from "../pages/MyList";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -24,11 +25,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/addtourist",
-        element: <AddTourist></AddTourist>,
+        element: (
+          <PrivateRoute>
+            <AddTourist></AddTourist>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/mylist",
-        element: <MyList></MyList>,
+        element: (
+          <PrivateRoute>
+            <MyList></MyList>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",
