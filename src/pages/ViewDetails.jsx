@@ -36,28 +36,55 @@ const ViewDetails = () => {
   return (
     <div className="mx-auto max-w-[90%] mt-6">
       <h2 className="text-center font-bold text-3xl">Details</h2>
-      <div className="flex gap-10 mt-10 shadow-lg p-10">
-        <div className="max-w-[50%] ">
-          <img className="rounded-xl h-full object-cover" src={image} alt="" />
+      <div className="flex lg:flex-row flex-col gap-10 mt-10 shadow-lg p-10">
+        <div className="lg:min-w-[40%] min-h-[100%]">
+          <img
+            className=" w-full rounded-xl lg:min-h-full max-h-96 object-cover"
+            src={image}
+            alt=""
+          />
         </div>
         <div>
           <h2 className="font-bold text-2xl">{tourists_spot_name}</h2>
-          <p className="text-lg mt-5">Location: {location}</p>
-          <p className="text-lg mt-5">{country_name}</p>
-          <p className="text-lg mt-5">Short Description: </p>
+          <p className="text-lg font-bold mt-5">
+            Location: <span className="font-normal">{location}</span>
+          </p>
+          <p className="text-2xl font-bold text-[#e55039] mt-5">
+            {country_name}
+          </p>
+          <div className="divider"></div>
+          <p className="text-lg font-bold">Short Description: </p>
+
           <p className="text-lg mt-2">{description}</p>
-          <div className="flex gap-4 justify-between">
-            <p className="text-lg mt-5">Travel Time: {travel_time} Days</p>
-          </div>
-          <div className="flex gap-4 justify-between">
-            <p className="text-lg mt-5">Season: {season}</p>
-            <p className="text-lg mt-5">Average Cost: {average_cost}$</p>
-            <p className="text-lg mt-5">
-              Total Visitors Per Year: {total_visitors_per_year}
+          <div className="divider"></div>
+
+          <div className="flex lg:flex-row flex-col gap-4 justify-between mt-5">
+            <p className="text-lg font-bold">
+              Season: <span className="font-normal">{season}</span>
+            </p>
+            <p className="text-lg font-bold">
+              Average Cost: <span className="font-normal">{average_cost}$</span>
+            </p>
+            <p className="text-lg font-bold">
+              Total Visitors Per Year:{" "}
+              <span className="font-normal">{total_visitors_per_year}</span>
             </p>
           </div>
-          <p className="text-lg mt-5">Contact Email: {email}</p>
-          <p className="text-lg mt-5">Added By: {username}</p>
+          <div className="lg:mt-5 mt-4">
+            <p className="text-lg font-bold">
+              Travel Time:{" "}
+              <span className="font-normal">{travel_time} Days</span>
+            </p>
+          </div>
+          <div className="divider"></div>
+          <div className="flex lg:flex-row flex-col gap-4 justify-between">
+            <p className="text-lg font-bold">
+              Added By: <span className="font-normal">{username}</span>
+            </p>
+            <p className="text-lg font-bold">
+              Contact Email: <span className="font-normal">{email}</span>
+            </p>
+          </div>
         </div>
       </div>
     </div>
