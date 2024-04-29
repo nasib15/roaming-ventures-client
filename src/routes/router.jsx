@@ -20,12 +20,14 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:3000/touristspots"),
+        loader: () =>
+          fetch("http://b9a10-server-side-knh-nehal.vercel.app/touristspots"),
       },
       {
         path: "/alltourist",
         element: <AllTourist></AllTourist>,
-        loader: () => fetch("http://localhost:3000/touristspots"),
+        loader: () =>
+          fetch("http://b9a10-server-side-knh-nehal.vercel.app/touristspots"),
       },
       {
         path: "/addtourist",
@@ -42,7 +44,8 @@ const router = createBrowserRouter([
             <MyList></MyList>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:3000/touristspots"),
+        loader: () =>
+          fetch("http://b9a10-server-side-knh-nehal.vercel.app/touristspots"),
       },
       {
         path: "/details/:id",
@@ -52,7 +55,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/touristspots/${params.id}`),
+          fetch(
+            `http://b9a10-server-side-knh-nehal.vercel.app/touristspots/${params.id}`
+          ),
       },
       {
         path: "/updatedetails/:id",
@@ -62,7 +67,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/touristspots/${params.id}`),
+          fetch(
+            `http://b9a10-server-side-knh-nehal.vercel.app/touristspots/${params.id}`
+          ),
       },
       {
         path: "/login",

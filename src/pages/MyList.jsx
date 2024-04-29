@@ -10,15 +10,6 @@ const MyList = () => {
   const useremail = user.email;
   const filteredSpots = spots.filter((spot) => spot.email === useremail);
 
-  // SweetAlert2
-  const swalWithBootstrapButtons = Swal.mixin({
-    customClass: {
-      confirmButton: "btn btn-success",
-      cancelButton: "btn btn-danger",
-    },
-    buttonsStyling: false,
-  });
-
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
