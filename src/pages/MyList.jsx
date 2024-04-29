@@ -7,9 +7,8 @@ const MyList = () => {
   const spots = useLoaderData();
   const { user } = useContext(AuthContext);
   const useremail = user.email;
-  console.log(useremail);
   const filteredSpots = spots.filter((spot) => spot.email === useremail);
-  console.log(filteredSpots);
+
   return (
     <div className="mx-auto max-w-[90%]">
       <div className="text-center space-y-4">

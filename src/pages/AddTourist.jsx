@@ -30,7 +30,7 @@ const AddTourist = () => {
       username,
       email,
     };
-    console.log(spotInfo);
+
     fetch("http://localhost:3000/touristspots", {
       method: "POST",
       headers: {
@@ -42,7 +42,7 @@ const AddTourist = () => {
       .then((data) => {
         if (data.insertedId) {
           toast.success("Spot information added successfully");
-          //   form.reset();
+          form.reset();
         }
       })
       .catch((error) => {
