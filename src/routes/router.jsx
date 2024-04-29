@@ -8,6 +8,8 @@ import MyList from "../pages/MyList";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import PrivateRoute from "./PrivateRoute";
+import ViewDetails from "../pages/ViewDetails";
+import UpdateDetails from "../pages/UpdateDetails";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +41,25 @@ const router = createBrowserRouter([
             <MyList></MyList>
           </PrivateRoute>
         ),
+        loader: () => fetch("http://localhost:3000/touristspots"),
+      },
+      {
+        path: "/details/:id",
+        element: (
+          <PrivateRoute>
+            <ViewDetails></ViewDetails>
+          </PrivateRoute>
+        ),
+        loader: () => fetch("http://localhost:3000/touristspots"),
+      },
+      {
+        path: "/updatedetails/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateDetails></UpdateDetails>
+          </PrivateRoute>
+        ),
+        loader: () => fetch("http://localhost:3000/touristspots"),
       },
       {
         path: "/login",

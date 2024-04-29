@@ -1,8 +1,22 @@
-/* eslint-disable react/no-unescaped-entities */
 import toast from "react-hot-toast";
+import { useLoaderData, useParams } from "react-router-dom";
 
-const AddTourist = () => {
-  const handleSubmit = (e) => {
+const UpdateDetails = () => {
+  const { id } = useParams();
+  const spotObject = useLoaderData().find((spot) => spot._id == id);
+  const {
+    image,
+    tourists_spot_name,
+    country_name,
+    location,
+    description,
+    average_cost,
+    season,
+    travel_time,
+    total_visitors_per_year,
+  } = spotObject;
+
+  const handleUpdate = (e) => {
     e.preventDefault();
     const form = e.target;
     const image = form.image.value;
@@ -14,10 +28,8 @@ const AddTourist = () => {
     const season = form.season.value;
     const travel_time = form.time.value;
     const total_visitors_per_year = form.visitors.value;
-    const username = form.username.value;
-    const email = form.email.value;
 
-    const spotInfo = {
+    const updateInfo = {
       image,
       tourists_spot_name,
       country_name,
@@ -27,21 +39,19 @@ const AddTourist = () => {
       season,
       travel_time,
       total_visitors_per_year,
-      username,
-      email,
     };
-    console.log(spotInfo);
-    fetch("http://localhost:3000/touristspots", {
-      method: "POST",
+    fetch(`http://localhost:3000/touristspots/${id}`, {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(spotInfo),
+      body: JSON.stringify(updateInfo),
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.insertedId) {
-          toast.success("Spot information added successfully");
+        console.log(data);
+        if (data.modifiedCount) {
+          toast.success("Tourist spot information updated successfully");
           //   form.reset();
         }
       })
@@ -49,16 +59,14 @@ const AddTourist = () => {
         console.error(error);
       });
   };
-
   return (
     <div className="max-w-[90%] mx-auto mt-6">
       <div className="text-center space-y-4">
-        <h2 className="text-3xl font-bold">Add Tourist Spots</h2>
+        <h2 className="text-3xl font-bold">Update Tourist Spot Information</h2>
         <p className="opacity-80 w-[80%] mx-auto ">
-          Discover iconic destinations worldwide in our Tourist Spots section.
-          Explore famous landmarks, hidden gems, and must-visit attractions.
-          From breathtaking natural wonders to cultural hotspots, find
-          inspiration for your next adventure here.
+          Keep your tourist spots list fresh and up-to-date with our easy-to-use
+          update feature. Add new discoveries, enhance existing entries, and
+          ensure your itinerary reflects the latest attractions.
         </p>
       </div>
       {/* form section */}
@@ -66,7 +74,7 @@ const AddTourist = () => {
         <div className="hero min-h-[90vh]">
           <div className="flex justify-center items-center w-full flex-col lg:flex-row-reverse">
             <div className="mt-16 card shrink-0 min-w-[70%] shadow-2xl bg-base-100">
-              <form className="p-10" onSubmit={handleSubmit}>
+              <form onSubmit={handleUpdate} className="p-10">
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Image URL</span>
@@ -77,6 +85,7 @@ const AddTourist = () => {
                     placeholder="https://example.com/image.jpg"
                     className="input input-bordered"
                     required
+                    defaultValue={image}
                   />
                 </div>
                 <div className="flex lg:flex-row space-y-2 lg:space-y-0  lg:gap-10 justify-between flex-col">
@@ -90,6 +99,7 @@ const AddTourist = () => {
                       placeholder="Rangamati"
                       className="input input-bordered"
                       required
+                      defaultValue={tourists_spot_name}
                     />
                   </div>
                   <div className="form-control flex-1">
@@ -102,6 +112,7 @@ const AddTourist = () => {
                       placeholder="Bangladesh"
                       className="input input-bordered"
                       required
+                      defaultValue={country_name}
                     />
                   </div>
                   <div className="form-control flex-1">
@@ -114,6 +125,7 @@ const AddTourist = () => {
                       placeholder="Southern Bangladesh"
                       className="input input-bordered"
                       required
+                      defaultValue={location}
                     />
                   </div>
                 </div>
@@ -127,6 +139,7 @@ const AddTourist = () => {
                     placeholder="Description of the tourist spot"
                     className="input input-bordered"
                     required
+                    defaultValue={description}
                   />
                 </div>
                 <div className="flex lg:flex-row space-y-2 lg:space-y-0  lg:gap-10 justify-between flex-col">
@@ -140,6 +153,7 @@ const AddTourist = () => {
                       placeholder="100"
                       className="input input-bordered"
                       required
+                      defaultValue={average_cost}
                     />
                   </div>
                   <div className="form-control flex-1">
@@ -152,6 +166,7 @@ const AddTourist = () => {
                       placeholder="Winter"
                       className="input input-bordered"
                       required
+                      defaultValue={season}
                     />
                   </div>
                   <div className="form-control flex-1">
@@ -164,6 +179,7 @@ const AddTourist = () => {
                       placeholder="10"
                       className="input input-bordered"
                       required
+                      defaultValue={travel_time}
                     />
                   </div>
                   <div className="form-control flex-1">
@@ -178,38 +194,13 @@ const AddTourist = () => {
                       placeholder="10000"
                       className="input input-bordered"
                       required
-                    />
-                  </div>
-                </div>
-                <div className="flex lg:flex-row space-y-2 lg:space-y-0  lg:gap-10 justify-between flex-col">
-                  <div className="form-control flex-1">
-                    <label className="label">
-                      <span className="label-text">User Name</span>
-                    </label>
-                    <input
-                      type="text"
-                      name="username"
-                      placeholder="Mr. X"
-                      className="input input-bordered"
-                      required
-                    />
-                  </div>
-                  <div className="form-control flex-1">
-                    <label className="label">
-                      <span className="label-text">User Email</span>
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="company@gmail.com"
-                      className="input input-bordered"
-                      required
+                      defaultValue={total_visitors_per_year}
                     />
                   </div>
                 </div>
                 <div className="form-control mt-6">
                   <button type="submit" className="btn bg-[#e55039] text-white">
-                    Add
+                    Update
                   </button>
                 </div>
               </form>
@@ -221,4 +212,4 @@ const AddTourist = () => {
   );
 };
 
-export default AddTourist;
+export default UpdateDetails;

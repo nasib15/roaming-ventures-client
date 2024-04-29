@@ -1,10 +1,7 @@
 /* eslint-disable react/prop-types */
-// import { BsPeopleFill } from "react-icons/bs";
-// import { HiOutlineCurrencyDollar } from "react-icons/hi";
-// import { HiMiniPhoto } from "react-icons/hi2";
-// import { MdAccessTimeFilled } from "react-icons/md";
+import { Link } from "react-router-dom";
 
-const SpotCard = ({ image, spot, cost, season, time, visitors }) => {
+const SpotCard = ({ id, image, spot, cost, season, time, visitors }) => {
   return (
     <div>
       <div className="card bg-base-100 border">
@@ -39,9 +36,12 @@ const SpotCard = ({ image, spot, cost, season, time, visitors }) => {
             </div>
           </div>
           <div className="card-actions mt-4">
-            <button className="btn bg-[#e55039] hover:bg-[#b71510] text-white rounded-3xl px-7 font-semibold text-base border-none">
+            <Link
+              to={`/details/${id}`}
+              className="btn bg-[#e55039] hover:bg-[#b71510] text-white rounded-3xl px-7 font-semibold text-base border-none"
+            >
               View Details
-            </button>
+            </Link>
           </div>
         </div>
       </div>

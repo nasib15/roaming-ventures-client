@@ -20,9 +20,9 @@ const AllTourist = () => {
         {spots.map((spot) => (
           <SpotCard
             key={spot._id}
+            id={spot._id}
             image={spot.image}
             spot={spot.tourists_spot_name}
-            
             cost={spot.average_cost}
             season={spot.season}
             time={spot.travel_time}
