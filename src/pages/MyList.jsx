@@ -2,12 +2,60 @@ import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import { useContext } from "react";
 import { MdDelete, MdEdit } from "react-icons/md";
+import Swal from "sweetalert2";
 
 const MyList = () => {
   const spots = useLoaderData();
   const { user } = useContext(AuthContext);
   const useremail = user.email;
   const filteredSpots = spots.filter((spot) => spot.email === useremail);
+
+  // SweetAlert2
+  const swalWithBootstrapButtons = Swal.mixin({
+    customClass: {
+      confirmButton: "btn btn-success",
+      cancelButton: "btn btn-danger",
+    },
+    buttonsStyling: false,
+  });
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#4a69bd",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:3000/touristspots/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount === 1) {
+              Swal.fire(
+                "Deleted!",
+                "Your spot information has been deleted.",
+                "success"
+              );
+            }
+          });
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        Swal.fire({
+          title: "Cancelled",
+          text: "Your spot information is safe :)",
+          icon: "error",
+          confirmButtonColor: "#4a69bd",
+        });
+      }
+    });
+  };
 
   return (
     <div className="mx-auto max-w-[90%]">
@@ -45,7 +93,7 @@ const MyList = () => {
                 </td>
 
                 <td>
-                  <button>
+                  <button onClick={() => handleDelete(spot._id)}>
                     <MdDelete />
                   </button>
                 </td>
