@@ -20,8 +20,6 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () =>
-          fetch("http://b9a10-server-side-knh-nehal.vercel.app/touristspots"),
       },
       {
         path: "/alltourist",
@@ -50,10 +48,6 @@ const router = createBrowserRouter([
             <ViewDetails></ViewDetails>
           </PrivateRoute>
         ),
-        loader: ({ params }) =>
-          fetch(
-            `http://b9a10-server-side-knh-nehal.vercel.app/touristspots/${params.id}`
-          ),
       },
       {
         path: "/updatedetails/:id",
@@ -62,10 +56,6 @@ const router = createBrowserRouter([
             <UpdateDetails></UpdateDetails>
           </PrivateRoute>
         ),
-        loader: ({ params }) =>
-          fetch(
-            `http://b9a10-server-side-knh-nehal.vercel.app/touristspots/${params.id}`
-          ),
       },
       {
         path: "/login",

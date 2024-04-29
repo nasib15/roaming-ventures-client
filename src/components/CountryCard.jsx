@@ -10,7 +10,7 @@ import {
 const CountryCard = () => {
   return (
     <div>
-      <Card className="w-96">
+      <Card>
         <CardHeader floated={false} className="h-80">
           <img
             src="https://source.unsplash.com/featured/?nature"

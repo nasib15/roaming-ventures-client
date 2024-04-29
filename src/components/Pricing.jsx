@@ -4,9 +4,7 @@ const Pricing = () => {
       <section>
         <div className="container px-4 mx-auto">
           <div className="max-w-2xl mx-auto mb-16 text-center">
-            <h2 className="text-xl font-bold lg:text-3xl">
-              Choose your best plan
-            </h2>
+            <h2 className="text-3xl font-bold">Choose your best plan</h2>
           </div>
           <div className="flex flex-wrap items-stretch -mx-4">
             <div className="flex w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0">

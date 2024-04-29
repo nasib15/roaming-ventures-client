@@ -1,9 +1,26 @@
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { useLoaderData, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import Loading from "../components/Loading";
 
 const UpdateDetails = () => {
   const { id } = useParams();
-  const spotObject = useLoaderData();
+  const [spot, setSpot] = useState({});
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch(`http://b9a10-server-side-knh-nehal.vercel.app/touristspots/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setSpot(data);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return <Loading></Loading>;
+  }
+
   const {
     image,
     tourists_spot_name,
@@ -14,7 +31,7 @@ const UpdateDetails = () => {
     season,
     travel_time,
     total_visitors_per_year,
-  } = spotObject;
+  } = spot;
 
   const handleUpdate = (e) => {
     e.preventDefault();

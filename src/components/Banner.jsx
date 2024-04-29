@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Button, Carousel, Typography } from "@material-tailwind/react";
 
 const Banner = () => {
@@ -5,7 +6,7 @@ const Banner = () => {
     <div className="my-4">
       <Carousel
         transition={{ duration: 1 }}
-        // autoplay={true}
+        autoplay={true}
         loop={true}
         autoplayDelay={3500}
         navigation={({ setActiveIndex, activeIndex, length }) => (
@@ -48,7 +49,7 @@ const Banner = () => {
               </Typography>
               <div className="flex justify-center gap-2">
                 <Button size="lg" className="bg-[#e55039]">
-                  Explore
+                  <a href="#spots">Explore</a>
                 </Button>
                 <Button size="lg" color="white" variant="text">
                   Gallery
@@ -82,7 +83,7 @@ const Banner = () => {
               </Typography>
               <div className="flex gap-2">
                 <Button size="lg" className="bg-[#e55039]">
-                  Explore
+                  <a href="#spots">Explore</a>
                 </Button>
                 <Button size="lg" color="white" variant="text">
                   Gallery
@@ -116,7 +117,7 @@ const Banner = () => {
               </Typography>
               <div className="flex gap-2">
                 <Button size="lg" className="bg-[#e55039]">
-                  Explore
+                  <a href="#spots">Explore</a>
                 </Button>
                 <Button size="lg" color="white" variant="text">
                   Gallery

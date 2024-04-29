@@ -1,10 +1,27 @@
 /* eslint-disable react/prop-types */
+import { useEffect, useState } from "react";
 import SpotCard from "./SpotCard";
+import Loading from "./Loading";
 
 /* eslint-disable react/no-unescaped-entities */
-const TouristsSpots = ({ spots }) => {
+const TouristsSpots = () => {
+  const [spots, setSpots] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch(`http://b9a10-server-side-knh-nehal.vercel.app/touristspots`)
+      .then((res) => res.json())
+      .then((data) => {
+        setSpots(data);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return <Loading></Loading>;
+  }
   return (
-    <div className="mx-auto max-w-[90%] lg:my-24">
+    <div id="spots" className="mx-auto max-w-[90%] my-12 lg:my-24">
       <div className="text-center space-y-4">
         <h2 className="text-3xl font-bold">Tourists Spots</h2>
         <p className="opacity-80 w-[80%] mx-auto">

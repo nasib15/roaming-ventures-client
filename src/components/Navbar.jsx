@@ -78,7 +78,7 @@ const Navbar = () => {
                 My List
               </NavLink>
             </li>
-            <div>
+            <div className="flex items-center gap-4">
               <li>
                 {user ? (
                   <div className="flex gap-4 items-center">

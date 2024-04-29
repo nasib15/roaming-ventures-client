@@ -30,6 +30,7 @@ const AddTourist = () => {
       username,
       email,
     };
+    console.log(spotInfo);
 
     fetch("http://localhost:3000/touristspots", {
       method: "POST",
@@ -65,11 +66,13 @@ const AddTourist = () => {
       <div>
         <div className="hero min-h-[90vh]">
           <div className="flex justify-center items-center w-full flex-col lg:flex-row-reverse">
-            <div className="mt-16 card shrink-0 min-w-[70%] shadow-2xl bg-base-100">
-              <form className="p-10" onSubmit={handleSubmit}>
+            <div className="mt-16 card shrink-0 min-w-[100%] shadow-2xl bg-base-100">
+              <form className="p-10 space-y-4" onSubmit={handleSubmit}>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Image URL</span>
+                    <span className="label-text font-semibold uppercase">
+                      Image URL
+                    </span>
                   </label>
                   <input
                     type="text"
@@ -79,10 +82,12 @@ const AddTourist = () => {
                     required
                   />
                 </div>
-                <div className="flex lg:flex-row space-y-2 lg:space-y-0  lg:gap-10 justify-between flex-col">
+                <div className="flex md:flex-row md:space-y-0 md: gap-10 lg:flex-row space-y-2 lg:space-y-0  lg:gap-10 justify-between flex-col">
                   <div className="form-control flex-1">
                     <label className="label">
-                      <span className="label-text">Tourist Spot Name</span>
+                      <span className="label-text font-semibold uppercase">
+                        Tourist Spot Name
+                      </span>
                     </label>
                     <input
                       type="text"
@@ -94,32 +99,42 @@ const AddTourist = () => {
                   </div>
                   <div className="form-control flex-1">
                     <label className="label">
-                      <span className="label-text">Country Name</span>
+                      <span className="label-text font-semibold uppercase">
+                        Country Name
+                      </span>
                     </label>
-                    <input
-                      type="text"
+                    <select
                       name="country"
-                      placeholder="Bangladesh"
-                      className="input input-bordered"
-                      required
-                    />
-                  </div>
-                  <div className="form-control flex-1">
-                    <label className="label">
-                      <span className="label-text">Location</span>
-                    </label>
-                    <input
-                      type="text"
-                      name="location"
-                      placeholder="Southern Bangladesh"
-                      className="input input-bordered"
-                      required
-                    />
+                      className="select select-bordered w-full max-w-xs"
+                    >
+                      <option selected>Bangladesh</option>
+                      <option>Malaysia</option>
+                      <option>Indonesia</option>
+                      <option>Thailand</option>
+                      <option>Vietnam</option>
+                      <option>Cambodia</option>
+                    </select>
                   </div>
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Short Description</span>
+                    <span className="label-text font-semibold uppercase">
+                      Location
+                    </span>
+                  </label>
+                  <input
+                    type="text"
+                    name="location"
+                    placeholder="Southern Bangladesh"
+                    className="input input-bordered"
+                    required
+                  />
+                </div>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text font-semibold uppercase">
+                      Short Description
+                    </span>
                   </label>
                   <input
                     type="text"
@@ -129,10 +144,12 @@ const AddTourist = () => {
                     required
                   />
                 </div>
-                <div className="flex lg:flex-row space-y-2 lg:space-y-0  lg:gap-10 justify-between flex-col">
+                <div className="flex md:flex-row md:space-y-0 md: gap-10 lg:flex-row space-y-2 lg:space-y-0  lg:gap-10 justify-between flex-col">
                   <div className="form-control flex-1">
                     <label className="label">
-                      <span className="label-text">Average Cost</span>
+                      <span className="label-text font-semibold uppercase">
+                        Average Cost
+                      </span>
                     </label>
                     <input
                       type="number"
@@ -144,19 +161,25 @@ const AddTourist = () => {
                   </div>
                   <div className="form-control flex-1">
                     <label className="label">
-                      <span className="label-text">Seasonality</span>
+                      <span className="label-text font-semibold uppercase">
+                        Seasonality
+                      </span>
                     </label>
-                    <input
-                      type="text"
+                    <select
                       name="season"
-                      placeholder="Winter"
-                      className="input input-bordered"
-                      required
-                    />
+                      className="select select-bordered w-full max-w-xs"
+                    >
+                      <option selected>Winter</option>
+                      <option>Summer</option>
+                    </select>
                   </div>
+                </div>
+                <div className="flex md:flex-row md:space-y-0 md: gap-10 lg:flex-row space-y-2 lg:space-y-0  lg:gap-10 justify-between flex-col">
                   <div className="form-control flex-1">
                     <label className="label">
-                      <span className="label-text">Travel Time (Days)</span>
+                      <span className="label-text font-semibold uppercase">
+                        Travel Time (Days)
+                      </span>
                     </label>
                     <input
                       type="number"
@@ -168,7 +191,7 @@ const AddTourist = () => {
                   </div>
                   <div className="form-control flex-1">
                     <label className="label">
-                      <span className="label-text">
+                      <span className="label-text font-semibold uppercase">
                         Total Visitors (Per Year)
                       </span>
                     </label>
@@ -184,7 +207,9 @@ const AddTourist = () => {
                 <div className="flex lg:flex-row space-y-2 lg:space-y-0  lg:gap-10 justify-between flex-col">
                   <div className="form-control flex-1">
                     <label className="label">
-                      <span className="label-text">User Name</span>
+                      <span className="label-text font-semibold uppercase">
+                        User Name
+                      </span>
                     </label>
                     <input
                       type="text"
@@ -196,7 +221,9 @@ const AddTourist = () => {
                   </div>
                   <div className="form-control flex-1">
                     <label className="label">
-                      <span className="label-text">User Email</span>
+                      <span className="label-text font-semibold uppercase">
+                        User Email
+                      </span>
                     </label>
                     <input
                       type="email"
@@ -207,8 +234,11 @@ const AddTourist = () => {
                     />
                   </div>
                 </div>
-                <div className="form-control mt-6">
-                  <button type="submit" className="btn bg-[#e55039] text-white">
+                <div className="form-control">
+                  <button
+                    type="submit"
+                    className="btn bg-[#e55039] text-white mt-8"
+                  >
                     Add
                   </button>
                 </div>
