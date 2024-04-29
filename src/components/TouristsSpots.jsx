@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
+/* eslint-disable react/prop-types */
+import SpotCard from "./SpotCard";
 
 /* eslint-disable react/no-unescaped-entities */
-const TouristsSpots = () => {
+const TouristsSpots = ({ spots }) => {
   return (
     <div className="mx-auto max-w-[90%] lg:my-24">
       <div className="text-center space-y-4">
@@ -13,29 +14,19 @@ const TouristsSpots = () => {
         </p>
       </div>
       {/* Card section */}
-      <div className="grid grid-cols-3 mt-10">
-        {/* Card 1 */}
-        <div className="flex flex-col items-center justify-center p-4 space-y-2 relative ">
-          <img
-            src="https://source.unsplash.com/featured/?nature"
-            alt="nature"
-            className="object-cover w-full h-96 bg-black/55 rounded-xl"
+      <div className=" mt-16 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10">
+        {spots.slice(0, 6).map((spot) => (
+          <SpotCard
+            key={spot._id}
+            id={spot._id}
+            image={spot.image}
+            spot={spot.tourists_spot_name}
+            cost={spot.average_cost}
+            season={spot.season}
+            time={spot.travel_time}
+            visitors={spot.total_visitors_per_year}
           />
-          <div className="flex">
-            <button className="bg-[#e55039] text-white border-none absolute bottom-24 left-24 rounded-full px-4 py-1 m-auto">
-              Price
-            </button>
-            <Link
-              to={`/details/`}
-              className="bg-[#4a69bd] text-white border-none absolute bottom-24 rounded-full px-4 py-1 m-auto"
-            >
-              View Details
-            </Link>
-          </div>
-          <h2 className="absolute bottom-10 m-auto text-white text-2xl">
-            Bangladesh
-          </h2>
-        </div>
+        ))}
       </div>
     </div>
   );

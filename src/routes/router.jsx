@@ -20,6 +20,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        loader: () => fetch("http://localhost:3000/touristspots"),
       },
       {
         path: "/alltourist",
@@ -50,7 +51,8 @@ const router = createBrowserRouter([
             <ViewDetails></ViewDetails>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:3000/touristspots"),
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/touristspots/${params.id}`),
       },
       {
         path: "/updatedetails/:id",
@@ -59,7 +61,8 @@ const router = createBrowserRouter([
             <UpdateDetails></UpdateDetails>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:3000/touristspots"),
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/touristspots/${params.id}`),
       },
       {
         path: "/login",

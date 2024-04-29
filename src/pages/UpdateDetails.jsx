@@ -3,7 +3,7 @@ import { useLoaderData, useParams } from "react-router-dom";
 
 const UpdateDetails = () => {
   const { id } = useParams();
-  const spotObject = useLoaderData().find((spot) => spot._id == id);
+  const spotObject = useLoaderData();
   const {
     image,
     tourists_spot_name,

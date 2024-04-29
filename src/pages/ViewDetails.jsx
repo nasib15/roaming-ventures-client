@@ -2,8 +2,7 @@ import { useLoaderData, useParams } from "react-router-dom";
 
 const ViewDetails = () => {
   const { id } = useParams();
-  const spots = useLoaderData();
-  const spot = spots.find((spot) => spot._id === id);
+  const spot = useLoaderData();
   const {
     image,
     average_cost,
@@ -17,6 +16,7 @@ const ViewDetails = () => {
     travel_time,
     username,
   } = spot;
+  console.log(spot);
   return <div className="mx-auto max-w-[90%] mt-6">details</div>;
 };
 

@@ -26,7 +26,7 @@ const AllTourist = () => {
             cost={spot.average_cost}
             season={spot.season}
             time={spot.travel_time}
-            visitors={spot.tota_visitors_per_year}
+            visitors={spot.total_visitors_per_year}
           />
         ))}
       </div>
