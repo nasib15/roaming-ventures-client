@@ -1,7 +1,25 @@
-import { useLoaderData } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import Loading from "../components/Loading";
 
 const ViewDetails = () => {
-  const spot = useLoaderData();
+  const { id } = useParams();
+  const [spots, setSpots] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch(`http://b9a10-server-side-knh-nehal.vercel.app/touristspots/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setSpots(data);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return <Loading></Loading>;
+  }
+
   const {
     image,
     average_cost,
@@ -14,7 +32,7 @@ const ViewDetails = () => {
     tourists_spot_name,
     travel_time,
     username,
-  } = spot;
+  } = spots;
   return (
     <div className="mx-auto max-w-[90%] mt-6">
       <h2 className="text-center font-bold text-3xl">Details</h2>
@@ -33,7 +51,7 @@ const ViewDetails = () => {
           </div>
           <div className="flex gap-4 justify-between">
             <p className="text-lg mt-5">Season: {season}</p>
-            <p className="text-lg mt-5">Average Cost: {average_cost} Taka</p>
+            <p className="text-lg mt-5">Average Cost: {average_cost}$</p>
             <p className="text-lg mt-5">
               Total Visitors Per Year: {total_visitors_per_year}
             </p>

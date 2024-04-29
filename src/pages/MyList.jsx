@@ -1,13 +1,28 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { MdDelete, MdEdit } from "react-icons/md";
 import Swal from "sweetalert2";
+import Loading from "../components/Loading";
 
 const MyList = () => {
-  const spots = useLoaderData();
+  const [spots, setSpots] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { user } = useContext(AuthContext);
   const useremail = user.email;
+
+  useEffect(() => {
+    fetch("http://b9a10-server-side-knh-nehal.vercel.app/touristspots")
+      .then((res) => res.json())
+      .then((data) => {
+        setSpots(data);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return <Loading></Loading>;
+  }
   const filteredSpots = spots.filter((spot) => spot.email === useremail);
 
   const handleDelete = (id) => {

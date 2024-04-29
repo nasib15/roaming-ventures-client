@@ -1,9 +1,24 @@
 /* eslint-disable react/no-unescaped-entities */
-import { useLoaderData } from "react-router-dom";
 import SpotCard from "../components/SpotCard";
+import { useEffect, useState } from "react";
+import Loading from "../components/Loading";
 
 const AllTourist = () => {
-  const spots = useLoaderData();
+  const [spots, setSpots] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("http://b9a10-server-side-knh-nehal.vercel.app/touristspots")
+      .then((res) => res.json())
+      .then((data) => {
+        setSpots(data);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return <Loading></Loading>;
+  }
 
   return (
     <div className="mx-auto max-w-[90%] mt-6">

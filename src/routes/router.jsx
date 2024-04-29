@@ -26,8 +26,6 @@ const router = createBrowserRouter([
       {
         path: "/alltourist",
         element: <AllTourist></AllTourist>,
-        loader: () =>
-          fetch("http://b9a10-server-side-knh-nehal.vercel.app/touristspots"),
       },
       {
         path: "/addtourist",
@@ -44,8 +42,6 @@ const router = createBrowserRouter([
             <MyList></MyList>
           </PrivateRoute>
         ),
-        loader: () =>
-          fetch("http://b9a10-server-side-knh-nehal.vercel.app/touristspots"),
       },
       {
         path: "/details/:id",
