@@ -1,4 +1,11 @@
 /* eslint-disable react/no-unescaped-entities */
+// import {
+//   Menu,
+//   MenuHandler,
+//   MenuList,
+//   MenuItem,
+//   Button,
+// } from "@material-tailwind/react";
 import SpotCard from "../components/SpotCard";
 import { useEffect, useState } from "react";
 import Loading from "../components/Loading";
@@ -20,6 +27,13 @@ const AllTourist = () => {
     return <Loading></Loading>;
   }
 
+  const handleSort = () => {
+    const sortedSpots = [...spots].sort(
+      (a, b) => a.average_cost - b.average_cost
+    );
+    setSpots(sortedSpots);
+  };
+
   return (
     <div className="mx-auto max-w-[90%] mt-6">
       <div className="text-center space-y-4">
@@ -31,8 +45,25 @@ const AllTourist = () => {
           site, your contributions help enrich the travel experiences of others.
         </p>
       </div>
-      <div>
-        
+      <div className="flex justify-center mt-6">
+        <div className="dropdown">
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn bg-[#e55039] hover:bg-[#b71510] text-white m-1"
+          >
+            Click
+          </div>
+          <ul
+            tabIndex={0}
+            className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+            onClick={handleSort}
+          >
+            <li>
+              <a>Average Cost</a>
+            </li>
+          </ul>
+        </div>
       </div>
       <div className=" mt-16 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10">
         {spots.map((spot) => (
