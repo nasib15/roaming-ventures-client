@@ -14,7 +14,7 @@ const CountriesSection = () => {
         </p>
       </div>
       {/* Card section */}
-      <div className="mt-16 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10">
+      <div className="mt-16 ">
         <CountryCard></CountryCard>
       </div>
     </div>
