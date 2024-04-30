@@ -1,7 +1,11 @@
 /* eslint-disable react/no-unescaped-entities */
+import { useContext } from "react";
 import toast from "react-hot-toast";
+import { AuthContext } from "./../providers/AuthProvider";
 
 const AddTourist = () => {
+  const { user } = useContext(AuthContext);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -15,7 +19,7 @@ const AddTourist = () => {
     const travel_time = form.time.value;
     const total_visitors_per_year = form.visitors.value;
     const username = form.username.value;
-    const email = form.email.value;
+    const email = user.email;
 
     const spotInfo = {
       image,

@@ -4,7 +4,7 @@ import { AuthContext } from "../providers/AuthProvider";
 import toast from "react-hot-toast";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateProfileName } = useContext(AuthContext);
   const [registerError, setRegisterError] = useState(null);
 
   const handleRegister = (e) => {
@@ -12,6 +12,8 @@ const Register = () => {
     const form = e.target;
     const email = form.email.value;
     const pass = form.pass.value;
+    const name = form.name.value;
+    const photo = form.url.value;
 
     if (!/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(pass)) {
       setRegisterError(
@@ -23,6 +25,7 @@ const Register = () => {
 
     createUser(email, pass)
       .then(() => {
+        updateProfileName(name, photo);
         toast.success("User registered successfully");
       })
       .catch((error) => {

@@ -66,8 +66,17 @@ const MyList = () => {
   return (
     <div className="mx-auto max-w-[90%] mt-6">
       {filteredSpots.length === 0 ? (
-        <div className="font-bold text-3xl flex justify-center items-center min-h-[50vh]">
+        <div className="font-bold text-3xl flex flex-col justify-center items-center min-h-[50vh]">
           No Data Available
+          <div className="mt-4">
+            <Link
+              rel="noopener noreferrer"
+              to={"/addtourist"}
+              className="px-8 py-3 text-lg  font-semibold rounded bg-[#e55039] hover:bg-[#b71510] text-white"
+            >
+              Add tourist spot
+            </Link>
+          </div>
         </div>
       ) : (
         <div>
