@@ -8,12 +8,10 @@ import { Tooltip } from "react-tooltip";
 const Navbar = () => {
   const { user, signOutUser } = useContext(AuthContext);
 
-  const [isdark, setIsdark] = useState(
-    JSON.parse(localStorage.getItem("isdark"))
-  );
+  const [dark, setDark] = useState(JSON.parse(localStorage.getItem("dark")));
   useEffect(() => {
-    localStorage.setItem("isdark", JSON.stringify(isdark));
-  }, [isdark]);
+    localStorage.setItem("dark", JSON.stringify(dark));
+  }, [dark]);
 
   const handleSignOut = () => {
     signOutUser()
@@ -26,14 +24,14 @@ const Navbar = () => {
   };
 
   return (
-    <div className=" py-4 shadow-lg">
+    <div className=" py-4 shadow-lg dark:bg-red-300">
       <div className="mx-auto max-w-[90%] ">
         <div className="navbar bg-base-100">
           <div className="flex-1 lg:flex-none lg:hidden">
             <NavbarIconResponsive></NavbarIconResponsive>
           </div>
           <div className="lg:flex-1 lg:flex hidden">
-            <Link to={"/"} className="btn btn-ghost text-xl">
+            <Link to={"/"} className="btn gap-2 btn-ghost text-xl">
               Roaming <span className="text-[#e55039]">Ventures</span>
             </Link>
           </div>
@@ -93,10 +91,10 @@ const Navbar = () => {
                   {/* this hidden checkbox controls the state */}
                   <input
                     type="checkbox"
-                    checked={isdark}
+                    checked={!dark}
                     className="theme-controller"
                     value="synthwave"
-                    onChange={() => setIsdark(!isdark)}
+                    onClick={() => setDark(!dark)}
                   />
 
                   {/* sun icon */}

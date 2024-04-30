@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Banner from "../components/Banner";
 import CountriesSection from "../components/CountriesSection";
 import Faq from "../components/Faq";

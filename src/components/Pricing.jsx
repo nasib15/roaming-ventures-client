@@ -9,9 +9,8 @@ const Pricing = () => {
           <div className="flex flex-wrap items-stretch -mx-4">
             <div className="flex w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0">
               <div className="flex flex-grow flex-col p-6 space-y-6 rounded shadow sm:p-8 bg-white">
-                <div className="space-y-2">
+                <div className="pricing-heading space-y-2">
                   <h4 className="text-2xl font-bold">Explorer</h4>
-
                   <span className="text-6xl font-bold">
                     $99
                     <span className="text-sm tracking-wide">/month</span>
@@ -185,7 +184,7 @@ const Pricing = () => {
             </div>
             <div className="flex w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0">
               <div className="flex flex-grow flex-col p-6 space-y-6 rounded shadow sm:p-8 bg-white">
-                <div className="space-y-2">
+                <div className="pricing-heading space-y-2">
                   <h4 className="text-2xl font-bold">Wanderlust</h4>
                   <span className="text-6xl font-bold">
                     $299

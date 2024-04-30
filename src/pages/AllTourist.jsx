@@ -52,7 +52,7 @@ const AllTourist = () => {
             role="button"
             className="btn bg-[#e55039] hover:bg-[#b71510] text-white m-1"
           >
-            Click
+            Sort By
           </div>
           <ul
             tabIndex={0}

@@ -2,7 +2,7 @@
 const Faq = () => {
   return (
     <div className="lg:my-24 mx-auto max-w-[90%]">
-      <section className=" text-black">
+      <section id="faq" className=" text-black ">
         <div className="container flex flex-col justify-center space-y-6 px-4 py-8 mx-auto md:p-8">
           <h2 className="text-3xl font-bold mx-auto ">
             Frequently Asked Questions

@@ -11,16 +11,16 @@ const Footer = () => {
               aria-label="Go home"
               className="tracking-wide inline-flex items-center"
             >
-              <span className="ml-2 text-xl font-bold text-gray-800 uppercase">
-                Roaming Ventures
+              <span className="footer-text text-2xl font-bold text-gray-800 uppercase">
+                Roaming <span className="text-[#e55039]">Ventures</span>
               </span>
             </a>
             <div className="mt-6 lg:max-w-sm">
-              <p className="text-sm text-gray-800">
+              <p className="footer-text text-sm text-gray-800">
                 Embark on extraordinary adventures with Roaming Ventures, your
                 premier destination for immersive travel experiences.
               </p>
-              <p className="mt-4 text-sm text-gray-800">
+              <p className="footer-text mt-4 text-sm text-gray-800">
                 Explore captivating destinations, uncover hidden gems, and let
                 our expert guidance ignite your wanderlust. Begin your next
                 unforgettable journey with us today!
@@ -28,47 +28,47 @@ const Footer = () => {
             </div>
           </div>
           <div className="space-y-2 text-sm">
-            <p className="text-base font-bold tracking-wide text-gray-900">
+            <p className="footer-text text-xl font-bold tracking-wide text-gray-900">
               Contacts
             </p>
             <div className="flex">
-              <p className="mr-1 text-gray-800">Phone:</p>
+              <p className="footer-text mr-1 text-gray-800">Phone:</p>
               <a
                 href="tel:850-123-5021"
                 aria-label="Our phone"
                 title="Our phone"
-                className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800"
+                className="footer-contact transition-colors duration-300 text-gray-600 hover:text-deep-purple-800"
               >
                 850-123-5021
               </a>
             </div>
             <div className="flex">
-              <p className="mr-1 text-gray-800">Email:</p>
+              <p className="footer-text mr-1 text-gray-800">Email:</p>
               <a
                 href="mailto:roamingventures@gmail.com"
                 aria-label="Our email"
                 title="Our email"
-                className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800"
+                className="footer-contact transition-colors duration-300 text-gray-600 hover:text-deep-purple-800"
               >
                 roamingventures@gmail.com
               </a>
             </div>
             <div className="flex">
-              <p className="mr-1 text-gray-800">Address:</p>
+              <p className="footer-text mr-1 text-gray-800">Address:</p>
               <a
                 href="https://www.google.com/maps"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Our address"
                 title="Our address"
-                className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800"
+                className="footer-contact transition-colors duration-300 text-gray-600 hover:text-deep-purple-800"
               >
                 312 Lovely Street, NY
               </a>
             </div>
           </div>
           <div>
-            <span className="text-base font-bold tracking-wide text-gray-900">
+            <span className="footer-text text-xl font-bold tracking-wide text-gray-900">
               Social
             </span>
             <div className="flex items-center mt-3 space-x-3 text-xl">
@@ -101,22 +101,23 @@ const Footer = () => {
                 <FaLinkedin></FaLinkedin>
               </a>
             </div>
-            <p className="mt-4 text-sm text-gray-500">
+            <p className="footer-text mt-4 text-sm text-gray-800">
               Connect with us on social media for travel inspiration, updates,
               and exclusive offers. Follow us on Facebook, Twitter, YouTube, and
               LinkedIn for unforgettable adventures!
             </p>
           </div>
         </div>
-        <div className="flex flex-col-reverse justify-between pt-5 pb-10 border-t lg:flex-row">
-          <p className="text-sm text-gray-600">
+        <div className="divider"></div>
+        <div className="flex flex-col-reverse justify-between  pb-10 lg:flex-row">
+          <p className="footer-text text-sm text-gray-600">
             © Copyright 2024 Roaming Ventures. All rights reserved.
           </p>
           <ul className="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
             <li>
               <a
                 href="/"
-                className="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400"
+                className="footer-text text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400"
               >
                 F.A.Q
               </a>
@@ -124,7 +125,7 @@ const Footer = () => {
             <li>
               <a
                 href="/"
-                className="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400"
+                className="footer-text text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400"
               >
                 Privacy Policy
               </a>
@@ -132,7 +133,7 @@ const Footer = () => {
             <li>
               <a
                 href="/"
-                className="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400"
+                className="footer-text text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400"
               >
                 Terms &amp; Conditions
               </a>
