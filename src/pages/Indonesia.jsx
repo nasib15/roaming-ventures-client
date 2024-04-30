@@ -1,9 +1,8 @@
-/* eslint-disable react/no-unescaped-entities */
-import SpotCard from "../components/SpotCard";
 import { useEffect, useState } from "react";
 import Loading from "../components/Loading";
+import CountrySpotCard from "../components/CountrySpotCard";
 
-const AllTourist = () => {
+const Indonesia = () => {
   const [spots, setSpots] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -16,35 +15,29 @@ const AllTourist = () => {
       });
   }, []);
 
+  const filterSpots = spots.filter((spot) => spot.country_name === "Indonesia");
+
   if (loading) {
     return <Loading></Loading>;
   }
 
   return (
-    <div className="mx-auto max-w-[90%] mt-6">
+    <div className="max-w-[90%] mx-auto mt-6">
       <div className="text-center space-y-4">
-        <h2 className="text-3xl font-bold">All Tourist Spots</h2>
-        <p className="opacity-80 w-[80%] mx-auto ">
-          Share your favorite hidden gems and iconic landmarks with fellow
-          travelers by adding new tourist spots to our ever-growing database.
-          Whether it's a picturesque viewpoint, a charming cafe, or a historic
-          site, your contributions help enrich the travel experiences of others.
-        </p>
-      </div>
-      <div>
-        
+        <h2 className="text-3xl font-bold">Indonesia Tourists Spots</h2>
       </div>
       <div className=" mt-16 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10">
-        {spots.map((spot) => (
-          <SpotCard
+        {filterSpots.map((spot) => (
+          <CountrySpotCard
             key={spot._id}
             id={spot._id}
+            country={spot.country_name}
             image={spot.image}
+            location={spot.location}
+            description={spot.description}
             spot={spot.tourists_spot_name}
             cost={spot.average_cost}
             season={spot.season}
-            time={spot.travel_time}
-            visitors={spot.total_visitors_per_year}
           />
         ))}
       </div>
@@ -52,4 +45,4 @@ const AllTourist = () => {
   );
 };
 
-export default AllTourist;
+export default Indonesia;

@@ -10,6 +10,12 @@ import Register from "../pages/Register";
 import PrivateRoute from "./PrivateRoute";
 import ViewDetails from "../pages/ViewDetails";
 import UpdateDetails from "../pages/UpdateDetails";
+import Bangladesh from "../pages/Bangladesh";
+import Indonesia from "./../pages/Indonesia";
+import Vietnam from "./../pages/Vietnam";
+import Cambodia from "./../pages/Cambodia";
+import Malaysia from "../pages/Malaysia";
+import Thailand from "../pages/Thailand";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +62,30 @@ const router = createBrowserRouter([
             <UpdateDetails></UpdateDetails>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/countries/Bangladesh",
+        element: <Bangladesh></Bangladesh>,
+      },
+      {
+        path: "/countries/Indonesia",
+        element: <Indonesia></Indonesia>,
+      },
+      {
+        path: "/countries/Vietnam",
+        element: <Vietnam></Vietnam>,
+      },
+      {
+        path: "/countries/Thailand",
+        element: <Thailand></Thailand>,
+      },
+      {
+        path: "/countries/Malaysia",
+        element: <Malaysia></Malaysia>,
+      },
+      {
+        path: "/countries/Cambodia",
+        element: <Cambodia></Cambodia>,
       },
       {
         path: "/login",
