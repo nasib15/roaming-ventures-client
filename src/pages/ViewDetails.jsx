@@ -8,7 +8,7 @@ const ViewDetails = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://b9a10-server-side-knh-nehal.vercel.app/touristspots/${id}`)
+    fetch(`https://b9a10-server-side-knh-nehal.vercel.app/touristspots/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setSpots(data);

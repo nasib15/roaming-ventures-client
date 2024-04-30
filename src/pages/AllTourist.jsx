@@ -1,11 +1,4 @@
 /* eslint-disable react/no-unescaped-entities */
-// import {
-//   Menu,
-//   MenuHandler,
-//   MenuList,
-//   MenuItem,
-//   Button,
-// } from "@material-tailwind/react";
 import SpotCard from "../components/SpotCard";
 import { useEffect, useState } from "react";
 import Loading from "../components/Loading";
@@ -15,7 +8,7 @@ const AllTourist = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://b9a10-server-side-knh-nehal.vercel.app/touristspots")
+    fetch("https://b9a10-server-side-knh-nehal.vercel.app/touristspots")
       .then((res) => res.json())
       .then((data) => {
         setSpots(data);

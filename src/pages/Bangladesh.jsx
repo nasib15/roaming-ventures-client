@@ -7,7 +7,7 @@ const Bangladesh = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://b9a10-server-side-knh-nehal.vercel.app/touristspots")
+    fetch("https://b9a10-server-side-knh-nehal.vercel.app/touristspots")
       .then((res) => res.json())
       .then((data) => {
         setSpots(data);

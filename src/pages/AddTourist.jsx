@@ -35,7 +35,7 @@ const AddTourist = () => {
       email,
     };
 
-    fetch("http://localhost:3000/touristspots", {
+    fetch("https://b9a10-server-side-knh-nehal.vercel.app/touristspots", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

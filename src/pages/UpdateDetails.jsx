@@ -9,7 +9,7 @@ const UpdateDetails = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://b9a10-server-side-knh-nehal.vercel.app/touristspots/${id}`)
+    fetch(`https://b9a10-server-side-knh-nehal.vercel.app/touristspots/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setSpot(data);
@@ -57,7 +57,7 @@ const UpdateDetails = () => {
       travel_time,
       total_visitors_per_year,
     };
-    fetch(`http://localhost:3000/touristspots/${id}`, {
+    fetch(`https://b9a10-server-side-knh-nehal.vercel.app/touristspots/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -69,7 +69,7 @@ const UpdateDetails = () => {
         console.log(data);
         if (data.modifiedCount) {
           toast.success("Tourist spot information updated successfully");
-          //   form.reset();
+          form.reset();
         }
       })
       .catch((error) => {
