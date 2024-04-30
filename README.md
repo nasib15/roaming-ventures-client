@@ -12,3 +12,8 @@ Website Link: [https://b9-a10-client-side-knh-nehal.vercel.app/](https://b9-a10-
 - You can update info of the Tour Spots
 - You can login into the website
 - All the config files are stored secretly using environment variables
+
+### Used NPM Modules
+
+- React Tooltip
+- React Simple Typewriter

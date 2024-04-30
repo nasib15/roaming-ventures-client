@@ -34,7 +34,6 @@ const AddTourist = () => {
       username,
       email,
     };
-    console.log(spotInfo);
 
     fetch("http://localhost:3000/touristspots", {
       method: "POST",

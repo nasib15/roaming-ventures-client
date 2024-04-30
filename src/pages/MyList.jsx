@@ -23,6 +23,7 @@ const MyList = () => {
   if (loading) {
     return <Loading></Loading>;
   }
+
   const filteredSpots = spots.filter((spot) => spot.email === useremail);
 
   const handleDelete = (id) => {

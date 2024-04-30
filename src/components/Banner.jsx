@@ -1,14 +1,15 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Button, Carousel, Typography } from "@material-tailwind/react";
+import { Typewriter } from "react-simple-typewriter";
 
 const Banner = () => {
   return (
-    <div className="my-4">
+    <div className="py-6">
       <Carousel
         transition={{ duration: 1 }}
         autoplay={true}
         loop={true}
-        autoplayDelay={3500}
+        autoplayDelay={5000}
         navigation={({ setActiveIndex, activeIndex, length }) => (
           <div className="absolute bottom-4 left-2/4 z-50 flex -translate-x-2/4 gap-2">
             {new Array(length).fill("").map((_, i) => (
@@ -37,7 +38,13 @@ const Banner = () => {
                 color="white"
                 className="mb-4 text-3xl md:text-4xl lg:text-5xl"
               >
-                The Beauty of Nature
+                <Typewriter
+                  words={["The Beauty of Nature"]}
+                  loop={0}
+                  cursor={true}
+                  cursorStyle="_"
+                  delaySpeed={1500}
+                ></Typewriter>
               </Typography>
               <Typography
                 variant="lead"
@@ -71,7 +78,13 @@ const Banner = () => {
                 color="white"
                 className="mb-4 text-3xl md:text-4xl lg:text-5xl"
               >
-                Explore Hidden Gems
+                <Typewriter
+                  words={["Explore Hidden Gems"]}
+                  loop={0}
+                  cursor={true}
+                  cursorStyle="_"
+                  delaySpeed={1500}
+                ></Typewriter>
               </Typography>
               <Typography
                 variant="lead"
@@ -105,7 +118,13 @@ const Banner = () => {
                 color="white"
                 className="mb-4 text-3xl md:text-4xl lg:text-5xl"
               >
-                Adventure Awaits
+                <Typewriter
+                  words={["Adventure Awaits"]}
+                  loop={0}
+                  cursor={true}
+                  cursorStyle="_"
+                  delaySpeed={1500}
+                ></Typewriter>
               </Typography>
               <Typography
                 variant="lead"
