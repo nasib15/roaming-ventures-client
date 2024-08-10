@@ -1,19 +1,41 @@
 # Roaming Ventures
 
-Website Link: [https://b9-a10-client-side-knh-nehal.vercel.app/](https://b9-a10-client-side-knh-nehal.vercel.app/)
+#### Roaming Ventures is a tourism management website where users can know about tourism spots in Southeast Asian countries.
 
-## Category : B9 A10 Type-01 (Southeast Asia)
+## Features of the Website
 
-### Characteristics of the Website
-
-- It is fully responsive
-- You can add your tour spot
+- Light and Dark Theme available
 - It has some protected route so that only a verified user can add Tour Spots
-- You can update info of the Tour Spots
-- You can login into the website
 - All the config files are stored secretly using environment variables
+- A user can add/update/delete a tourist spot.
 
-### Used NPM Modules
+## Technologies
+- React
+- JavaScript
+- Tailwind CSS
 
-- React Tooltip
-- React Simple Typewriter
+## To Run Locally
+
+1. **Clone the repository:**
+
+    ```
+    git clone https://github.com/knh-nehal/roaming-ventures-client-side.git
+    cd roaming-ventures-client-side
+    ```
+
+2. **Install the dependencies:**
+    ```
+    npm install
+    ```
+
+3. **Start the development server:**
+
+    ```
+    npm run dev
+    ```
+
+### Build for Production:
+
+   ```
+   npm run build
+   ```
