@@ -19,8 +19,8 @@
 1. **Clone the repository:**
 
     ```
-    git clone https://github.com/knh-nehal/roaming-ventures-client-side.git
-    cd roaming-ventures-client-side
+    git clone https://github.com/nasib15/roaming-ventures-client.git
+    cd roaming-ventures-client
     ```
 
 2. **Install the dependencies:**
