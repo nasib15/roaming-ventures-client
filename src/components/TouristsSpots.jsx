@@ -1,9 +1,7 @@
-/* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import SpotCard from "./SpotCard";
 import Loading from "./Loading";
 
-/* eslint-disable react/no-unescaped-entities */
 const TouristsSpots = () => {
   const [spots, setSpots] = useState([]);
   const [loading, setLoading] = useState(true);

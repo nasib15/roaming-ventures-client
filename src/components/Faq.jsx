@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 const Faq = () => {
   return (
     <div className="lg:my-24 mx-auto max-w-[90%]">

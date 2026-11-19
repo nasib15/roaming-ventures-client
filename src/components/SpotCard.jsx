@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 
 const SpotCard = ({ id, image, spot, cost, season, time, visitors }) => {
