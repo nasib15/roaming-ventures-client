@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import SpotCard from "../components/SpotCard";
 import { useEffect, useState } from "react";
 import Loading from "../components/Loading";

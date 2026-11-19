@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import { useContext } from "react";
 import toast from "react-hot-toast";
 import { AuthContext } from "./../providers/AuthProvider";

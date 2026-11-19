@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import CountryCard from "./CountryCard";
 
 const CountriesSection = () => {
